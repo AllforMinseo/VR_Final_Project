@@ -44,11 +44,6 @@ public class cshUI : MonoBehaviour
             
 
         }
-        if (player.GetComponent<cshPlayerController>().HP <= 0 )
-        {
-            GameOver.gameObject.SetActive(true);//Á×À½
-            Time.timeScale = 0;
-        }
         /*if (player.GetComponent<cshPlayerController>().HP > 0 && )
         {
             Win.gameObject.SetActive(true);//½Â¸®

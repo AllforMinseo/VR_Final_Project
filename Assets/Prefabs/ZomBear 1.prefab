@@ -255,7 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHP: 15
   MoveSpeed: 2
-  SkillCooltime: 10
+  SkillCooltime: 8
 --- !u!114 &6188295977565345049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,7 +272,7 @@ MonoBehaviour:
   tagToClear: Bullet
   healAmount: 3
   CubeToSpawn: {fileID: 6971965666725938230, guid: a815f586d2fe25b4392c72d6029b8d4a, type: 3}
-  spawnOffset: {x: 0, y: 0, z: -3}
+  spawnOffset: {x: 0, y: 0, z: -5}
   PoolToSpawn: {fileID: 0}
   spawnOffset2: {x: 0, y: 0, z: 0}
   bullet: {fileID: 0}

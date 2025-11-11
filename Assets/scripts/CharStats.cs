@@ -8,7 +8,7 @@ public class CharStats : MonoBehaviour
     public float MaxHP = 10f;
     public float MoveSpeed = 2f;
     public float SkillCooltime = 10f;
-
+    
     // Update is called once per frame
     void Update() { 
     

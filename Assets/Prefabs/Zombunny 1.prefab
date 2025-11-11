@@ -324,7 +324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHP: 5
   MoveSpeed: 3
-  SkillCooltime: 10
+  SkillCooltime: 8
 --- !u!114 &-6688472794857380534
 MonoBehaviour:
   m_ObjectHideFlags: 0

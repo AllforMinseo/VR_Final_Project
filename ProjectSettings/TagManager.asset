@@ -10,6 +10,8 @@ TagManager:
   - bunny
   - tower
   - hero
+  - box
+  - Heal
   layers:
   - Default
   - TransparentFX
