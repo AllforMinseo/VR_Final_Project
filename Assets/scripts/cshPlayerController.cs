@@ -74,5 +74,6 @@ public class cshPlayerController : MonoBehaviour
             Destroy(col.gameObject);
             HP = Mathf.Max(0, HP - 1f);
         }
+        
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 
@@ -21,20 +22,28 @@ public class RandomReplacer : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"Triggered by: {other.name}");
-        string name = other.name;            
-        int i = int.Parse(name.Replace("Line", "")) - 1;
+        if (other.gameObject.tag == "RedZone")
+        {
+            GetComponent<cshPlayerController>().HP -= 2;
+            
+        }
+        else
+        {
+            Debug.Log($"Triggered by: {other.name}");
+            string name = other.name;
+            int i = int.Parse(name.Replace("Line", "")) - 1;
 
-        Transform player = transform.parent;                    // Player 보관
-        var prefab = heroCandidates[Random.Range(0, heroCandidates.Length)];
+            Transform player = transform.parent;                    // Player 보관
+            var prefab = heroCandidates[Random.Range(0, heroCandidates.Length)];
 
-        Destroy(gameObject);                                     // 나(Hero) 삭제
-        var newHero = Instantiate(prefab, lineSpawns[i].position, lineSpawns[i].rotation, player);
-        rebo.Lastline = i; 
-        newHero.name = "Hero";                                   // 이름 유지
-        FindObjectOfType<Follow1P>().target = newHero.transform;                     // 카메라 타깃 갱신
-        var ui = GameObject.FindObjectOfType<cshUI>();
-        if (ui) ui.player = newHero;
+            Destroy(gameObject);                                     // 나(Hero) 삭제
+            var newHero = Instantiate(prefab, lineSpawns[i].position, lineSpawns[i].rotation, player);
+            rebo.Lastline = i;
+            newHero.name = "Hero";                                   // 이름 유지
+            FindObjectOfType<Follow1P>().target = newHero.transform;                     // 카메라 타깃 갱신
+            var ui = GameObject.FindObjectOfType<cshUI>();
+            if (ui) ui.player = newHero;
+        }
     }
     void Update() {
         if (GetComponent<cshPlayerController>().HP <= 0)
