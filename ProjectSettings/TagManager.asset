@@ -5,13 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bullet
-  - elephant
-  - bear
-  - bunny
   - tower
   - hero
   - box
-  - Heal
+  - poison
+  - pee
+  - Tiger
   layers:
   - Default
   - TransparentFX

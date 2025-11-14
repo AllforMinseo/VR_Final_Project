@@ -32,7 +32,7 @@ public class cshUI : MonoBehaviour
 
     void Update()
     {
-        if (player == null) { player = GameObject.Find("Hero"); if (player == null) return; }
+        if (player == null) player = GameObject.Find("Hero"); 
         
         gametime += Time.deltaTime;
 
@@ -44,13 +44,14 @@ public class cshUI : MonoBehaviour
             
 
         }
-        /*if (player.GetComponent<cshPlayerController>().HP > 0 && )
+        if (player.transform.parent.GetComponent<StaticValue>().Loopline==1 )// ½Â¸®½Ã ½Ã°£¸ØÃß°í ÀÌ±èÈ­¸é Ç¥½Ã
         {
-            Win.gameObject.SetActive(true);//½Â¸®
-            Time.timeScale = 0;
-        }*/
+            Win.gameObject.SetActive(true);
+            Time.timeScale = 0f;
+        }
 
         Timetext.text = $"Time = { gametime.ToString("F2")}";
     }
+    
 
 }

@@ -7,11 +7,12 @@ public class Skill : MonoBehaviour
     public enum Kind
     {
         ClearTag,      // 특정 태그 전부 삭제(기존 동작)
-        Heal,          // 체력 회복 (cshPlayerController의 HP/MaxHP 사용)
-        SpawnCube,   // 프리팹 소환
+        Heal,          // 체력 회복
+        SpawnIce,   // 얼음 소환
         Dash, // 대쉬
         SpawnPool,
-        Shoot
+        Shoot,
+        howling
     }
 
     [Header("공통")]
@@ -23,18 +24,22 @@ public class Skill : MonoBehaviour
     [Header("Heal")]
     public float healAmount = 3f;
 
-    [Header("SpawnCube")]
-    public GameObject CubeToSpawn;
-    public Vector3 spawnOffset;
+    [Header("SpawnIce")]
+    public GameObject IceToSpawn;
+    
 
     [Header("SpawnPool")]
     public GameObject PoolToSpawn;
-    public Vector3 spawnOffset2;
+    
+
     [Header("Shoot")]
     [SerializeField]
     GameObject bullet;
     [SerializeField]
     Transform SpawnPos;
+
+    [Header("Howling")]
+    public Transform field;
 
     public void Cast()
     {
@@ -48,7 +53,7 @@ public class Skill : MonoBehaviour
                 DoHeal();
                 break;
 
-            case Kind.SpawnCube:
+            case Kind.SpawnIce:
                 DoSpawn();
                 break;
 
@@ -81,8 +86,8 @@ public class Skill : MonoBehaviour
 
     void DoSpawn()
     {
-        if (!CubeToSpawn) return;
-        Instantiate(CubeToSpawn, transform.position + spawnOffset, transform.rotation);
+        if (!IceToSpawn) return;
+        Instantiate(IceToSpawn, transform.position - transform.forward * 5f, transform.rotation);
     }
 
     void Dash()
@@ -94,7 +99,7 @@ public class Skill : MonoBehaviour
     void DoSpawn2()
     {
         if (!PoolToSpawn) return;
-        Instantiate(PoolToSpawn, transform.position + spawnOffset, transform.rotation);
+        Instantiate(PoolToSpawn, transform.position - transform.forward * 5f, transform.rotation);
     }
     void Shoot() {
 
