@@ -11,6 +11,10 @@ TagManager:
   - poison
   - pee
   - Tiger
+  - bunny
+  - bear
+  - elephant
+  - Line
   layers:
   - Default
   - TransparentFX

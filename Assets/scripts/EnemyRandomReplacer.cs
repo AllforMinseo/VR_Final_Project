@@ -22,23 +22,34 @@ public class EnemyRandomReplacer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        string name = other.name;
-        int i = int.Parse(name.Replace("Line", "")) - 1;
+        if (other.CompareTag("poison")) GetComponent<EnemyController>().HP -= 2;
+        else if (other.CompareTag("pee"))
+        {
+            var pc = GetComponent<EnemyController>();
+            GetComponent<EnemyController>().speedMul = 1f;
+            pc.Invoke(nameof(EnemyController.ResetSpeed), 2f);
+        }
+        else if (other.CompareTag("Line"))
+        {
+            string name = other.name;
+            int i = int.Parse(name.Replace("Line", "")) - 1;
 
-        Transform enemyRoot = transform.parent;
-        var prefab = enemyCandidates[Random.Range(0, enemyCandidates.Length)];
+            Transform enemyRoot = transform.parent;
+            var prefab = enemyCandidates[Random.Range(0, enemyCandidates.Length)];
 
-        Destroy(gameObject);   // 현재 Enemy 삭제
+            Destroy(gameObject);   // 현재 Enemy 삭제
 
-        var newEnemy = Instantiate(
-            prefab,
-            lineSpawns[i].position,
-            lineSpawns[i].rotation,
-            enemyRoot
-        );
+            var newEnemy = Instantiate(
+                prefab,
+                lineSpawns[i].position,
+                lineSpawns[i].rotation,
+                enemyRoot
+            );
 
-        rebo.LastLine = i;
-        newEnemy.name = "Enemy";
+            rebo.LastLine = i;
+            newEnemy.name = "Enemy";
+        }
+
     }
 
     void Update()

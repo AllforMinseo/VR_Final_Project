@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
         HP = stats.MaxHP;
         skillTimer = 0;
         speedMul = 2f;
-        InvokeRepeating(nameof(ResetSpeed), 4f, 4f);
+        Invoke(nameof(ResetSpeed), 4f);
     }
 
     void Update()
@@ -40,8 +40,6 @@ public class EnemyController : MonoBehaviour
         AutoSkillCast();
         AutoMoveRedzone(dt);
 
-        if (animator)
-            animator.SetFloat("movement", 1f);
     }
 
     void AutoSkillCast()
@@ -74,7 +72,7 @@ public class EnemyController : MonoBehaviour
         transform.Translate(dir.normalized * dt * stats.MoveSpeed * speedMul, Space.World);
     }
 
-    void ResetSpeed() => speedMul = 2f;
+    public void ResetSpeed() => speedMul = 2f;
 
     void OnCollisionEnter(Collision col)
     {
@@ -83,9 +81,6 @@ public class EnemyController : MonoBehaviour
             Destroy(col.gameObject);
             HP = Mathf.Max(HP - 1, 0);
         }
-        if (col.gameObject.tag == "poison")
-        {
-            HP -= 2;
-        }
+        
     }
 }
