@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3930610253332201677}
   - component: {fileID: 6419406001365792996}
   - component: {fileID: 8654464481591634929}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shell_01_Low:pCylinder18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 7843180081244191929}
   - component: {fileID: 1821510665665684973}
   - component: {fileID: 7705195958169196761}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10fbd88648c2244f8d099d9de149bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Hp: 0
 --- !u!1 &5837193609121128053
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +190,7 @@ GameObject:
   - component: {fileID: 774761059774754078}
   - component: {fileID: 7491533653524780887}
   - component: {fileID: 1115888051821721513}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shell_02_Low:Shell_RoadKillOut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +271,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1216658730591609445}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
