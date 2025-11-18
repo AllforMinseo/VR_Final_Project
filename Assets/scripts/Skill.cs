@@ -80,8 +80,11 @@ public class Skill : MonoBehaviour
     {
         // 네가 쓰는 컨트롤러에 HP/MaxHP가 있으니 그대로 활용
         var pc = GetComponent<cshPlayerController>();
-        if (!pc) return;
-        pc.HP = Mathf.Min(GetComponent<CharStats>().MaxHP, pc.HP + Mathf.Abs(healAmount));
+        var ec = GetComponent<EnemyController>();
+        if (gameObject.name == "Enemy")
+            ec.HP = Mathf.Min(GetComponent<CharStats>().MaxHP, ec.HP + Mathf.Abs(healAmount));
+        else
+            pc.HP = Mathf.Min(GetComponent<CharStats>().MaxHP, pc.HP + Mathf.Abs(healAmount));
     }
 
     void DoSpawn()
@@ -93,7 +96,11 @@ public class Skill : MonoBehaviour
     void Dash()
     {
         var pc = GetComponent<cshPlayerController>();
-        pc.speedMul = 4f;
+        var ec = GetComponent<EnemyController>();
+        if (gameObject.name == "Enemy")
+            ec.speedMul = 4f;
+        else
+            pc.speedMul = 4f;
     }
 
     void DoSpawn2()

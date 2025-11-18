@@ -91,16 +91,16 @@ public class cshPlayerController : MonoBehaviour
         {
             var q = Quaternion.LookRotation(dir);
             transform.rotation = Quaternion.Lerp(transform.rotation, q, 0.1f);
-            animator.SetFloat("Vert", 1);
-            if(speedMul==4) animator.SetFloat("State", 1);
+            animator.SetFloat("Vert", 1, 0.2f, Time.deltaTime);
+            if(speedMul==4) animator.SetFloat("State", 1, 0.2f, Time.deltaTime);
         }
-        else if(dir.sqrMagnitude < 0.01f) animator.SetFloat("Vert", 0);
+        else if(dir.sqrMagnitude < 0.01f) animator.SetFloat("Vert", 0, 0.2f, Time.deltaTime);
 
         transform.Translate(dir * dt * stats.MoveSpeed * speedMul, Space.World);
 
     }
 
-    public void RefreshSpeedMul() { speedMul = 2f; animator.SetFloat("State", 0); }
+    public void RefreshSpeedMul() { speedMul = 2f; animator.SetFloat("State", 0, 0.2f, Time.deltaTime); }
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.CompareTag("Bullet"))

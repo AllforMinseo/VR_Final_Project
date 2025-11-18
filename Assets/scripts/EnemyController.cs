@@ -141,6 +141,9 @@ public class EnemyController : MonoBehaviour
         {
             Quaternion rot = Quaternion.LookRotation(dir);
             transform.rotation = Quaternion.Lerp(transform.rotation, rot, 0.1f);
+            animator.SetFloat("Vert", 1, 0.2f,Time.deltaTime);
+            if (speedMul == 2) animator.SetFloat("State", 0, 0.2f, Time.deltaTime);
+            else if (speedMul == 4) animator.SetFloat("State", 1, 0.2f, Time.deltaTime);
         }
 
         transform.Translate(dir.normalized * dt * stats.MoveSpeed * speedMul, Space.World);
