@@ -913,7 +913,13 @@ MonoBehaviour:
   HP: 0
   skillTimer: 0
   speedMul: 0
-  targetRedzone: {fileID: 1288622502411998687, guid: 9c499b30a961157459b93c79801433d2, type: 3}
+  redzones:
+  - {fileID: 5947819464035878102, guid: 54b9e1ee3974a1d40bc74fd6b7c7b023, type: 3}
+  - {fileID: 7866230884481649993, guid: 8326f1ef2dffc1a46910612c1e3d83e2, type: 3}
+  - {fileID: 7812377213693612602, guid: 8f7b383219180844eb90db6a428eb3db, type: 3}
+  - {fileID: 410178434178854608, guid: 051c7916c63fed048a0111f7954d2034, type: 3}
+  currentLine: 0
+  targetRedzone: {fileID: 5947819464035878102, guid: 54b9e1ee3974a1d40bc74fd6b7c7b023, type: 3}
 --- !u!1 &4895054071869259534
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4186528431304232338}
   - component: {fileID: 8094422546558912694}
   - component: {fileID: 5454361869328882323}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ice
   m_TagString: box
   m_Icon: {fileID: 0}
@@ -118,4 +118,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10fbd88648c2244f8d099d9de149bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Lastline: 0
+  Hp: 0

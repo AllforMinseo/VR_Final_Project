@@ -22,14 +22,23 @@ public class EnemyRandomReplacer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("poison")) GetComponent<EnemyController>().HP -= 2;
-        else if (other.CompareTag("pee"))
+        var ec = GetComponent<EnemyController>();
+
+        if (other.CompareTag("poison"))
         {
-            var pc = GetComponent<EnemyController>();
-            GetComponent<EnemyController>().speedMul = 1f;
-            pc.Invoke(nameof(EnemyController.ResetSpeed), 2f);
+            ec.HP -= 2;
+            return;
         }
-        else if (other.CompareTag("Line"))
+
+        if (other.CompareTag("pee"))
+        {
+            ec.speedMul = 1f;
+            ec.Invoke(nameof(EnemyController.ResetSpeed), 2f);
+            return;
+        }
+
+        // 여기부터는 Line 충돌 처리
+        if (other.CompareTag("Line"))
         {
             string name = other.name;
             int i = int.Parse(name.Replace("Line", "")) - 1;
@@ -37,7 +46,7 @@ public class EnemyRandomReplacer : MonoBehaviour
             Transform enemyRoot = transform.parent;
             var prefab = enemyCandidates[Random.Range(0, enemyCandidates.Length)];
 
-            Destroy(gameObject);   // 현재 Enemy 삭제
+            Destroy(gameObject);
 
             var newEnemy = Instantiate(
                 prefab,
@@ -47,14 +56,18 @@ public class EnemyRandomReplacer : MonoBehaviour
             );
 
             rebo.LastLine = i;
+
+            //라인 번호를 EnemyController로 전달 -> enemy가 죽어도 죽은 라인의 레드존을 다시 향하도록
+            newEnemy.GetComponent<EnemyController>().currentLine = i;
+
             newEnemy.name = "Enemy";
         }
-
     }
 
     void Update()
     {
         var ec = GetComponent<EnemyController>();
+
         if (ec && ec.HP <= 0)
         {
             Transform enemyRoot = transform.parent;
@@ -68,6 +81,8 @@ public class EnemyRandomReplacer : MonoBehaviour
                 lineSpawns[rebo.LastLine].rotation,
                 enemyRoot
             );
+
+            newEnemy.GetComponent<EnemyController>().currentLine = rebo.LastLine;
 
             newEnemy.name = "Enemy";
         }
