@@ -7,6 +7,7 @@ public class EnemyReborn : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] public GameObject Enermy;
     public int LastLine = 0;
+    public int LoopLine = 0;
     void Start()
     {
         

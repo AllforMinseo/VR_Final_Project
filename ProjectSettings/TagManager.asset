@@ -15,6 +15,7 @@ TagManager:
   - bear
   - elephant
   - Line
+  - Lava
   layers:
   - Default
   - TransparentFX

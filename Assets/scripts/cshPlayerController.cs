@@ -100,7 +100,7 @@ public class cshPlayerController : MonoBehaviour
 
     }
 
-    public void RefreshSpeedMul() { speedMul = 2f; animator.SetFloat("State", 0, 0.2f, Time.deltaTime); }
+    public void RefreshSpeedMul() { speedMul = 2f; animator.SetFloat("State", 0); }
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.CompareTag("Bullet"))

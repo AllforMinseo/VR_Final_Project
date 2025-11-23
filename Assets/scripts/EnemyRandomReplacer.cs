@@ -29,7 +29,11 @@ public class EnemyRandomReplacer : MonoBehaviour
             ec.HP -= 2;
             return;
         }
-
+        if (other.CompareTag("Lava"))
+        {
+            ec.HP -= 20;
+            return;
+        }
         if (other.CompareTag("pee"))
         {
             ec.speedMul = 1f;
