@@ -11,8 +11,7 @@ public class Skill : MonoBehaviour
         SpawnIce,   // 얼음 소환
         Dash, // 대쉬
         SpawnPool,
-        Shoot,
-        howling
+        Shoot
     }
 
     [Header("공통")]
@@ -38,8 +37,6 @@ public class Skill : MonoBehaviour
     [SerializeField]
     Transform SpawnPos;
 
-    [Header("Howling")]
-    public Transform field;
 
     public void Cast()
     {

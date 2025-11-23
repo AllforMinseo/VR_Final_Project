@@ -27,12 +27,18 @@ public class RandomReplacer : MonoBehaviour
         if (other.gameObject.tag == "poison")
         {
             GetComponent<cshPlayerController>().HP -= 2;
-            
+            return;
         }
         else if(other.gameObject.tag == "pee")
         {
             GetComponent<cshPlayerController>().speedMul = 1f;
-            pc.Invoke(nameof(cshPlayerController.RefreshSpeedMul), 2f);
+            pc.Invoke(nameof(cshPlayerController.RefreshSpeedMul), 2f); 
+            return;
+        }
+        else if (other.gameObject.tag == "Lava")
+        {
+            GetComponent<cshPlayerController>().HP -= 20;
+            return;
         }
         else
         {

@@ -160,5 +160,9 @@ public class EnemyController : MonoBehaviour
             Destroy(col.gameObject);
             HP = Mathf.Max(HP - 1, 0);
         }
+        else if (col.gameObject.CompareTag("Tiger") && !gameObject.CompareTag("Tiger"))
+        {
+            HP = Mathf.Max(0, HP - 10f);
+        }
     }
 }
