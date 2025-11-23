@@ -469,7 +469,7 @@ GameObject:
   - component: {fileID: 3532661088928156812}
   m_Layer: 0
   m_Name: EnemyDog
-  m_TagString: hero
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -641,7 +641,14 @@ MonoBehaviour:
   - {fileID: 7812377213693612602, guid: 8f7b383219180844eb90db6a428eb3db, type: 3}
   - {fileID: 410178434178854608, guid: 051c7916c63fed048a0111f7954d2034, type: 3}
   currentLine: 0
-  targetRedzone: {fileID: 5947819464035878102, guid: 54b9e1ee3974a1d40bc74fd6b7c7b023, type: 3}
+  stayTimeLimit: 30
+  detectDistance: 5
+  avoidDuration: 1
+  sideCheckDistance: 2
+  RayOffset: 0.5
+  RayLength: 5
+  obstacleRayDepth: 3
+  minEscapeRayCount: 5
 --- !u!1 &3819777948840226355
 GameObject:
   m_ObjectHideFlags: 0
