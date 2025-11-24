@@ -30,8 +30,8 @@ public class cshPlayerController : MonoBehaviour
     {
         HP = stats.MaxHP;
         skillTimer = 10f;
-        if (animator) animator.updateMode = AnimatorUpdateMode.UnscaledTime;
-        speedMul = 2f;                               // ★ 변경: 시작 기본값 세팅
+        //if (animator) animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+        speedMul = 2f;                             
         
     }
 
@@ -40,10 +40,6 @@ public class cshPlayerController : MonoBehaviour
         float dt = Time.deltaTime;
         skillTimer += dt;
         if (cam == null) cam = GameObject.FindWithTag("MainCamera");
-        if (Time.timeScale == 0)
-        {
-            // 승패 처리/총알 정리는 필요 시 별도 이벤트로 빼도 됨
-        }
 
         Vector3 dir = Vector3.zero;
         if (cam.GetComponent<Follow1P>().isFirstPerson)
@@ -64,7 +60,10 @@ public class cshPlayerController : MonoBehaviour
             if (Input.GetKey(KeyCode.D)) dir += right * 0.0f;
 
             dir = Vector3.ClampMagnitude(dir, 1f);
-
+            if(dir.sqrMagnitude>0.1f)animator.SetFloat("Vert", 1, 0.2f, Time.deltaTime);
+            else animator.SetFloat("Vert", 0, 0.2f, Time.deltaTime);
+            if (speedMul == 4) animator.SetFloat("State", 1, 0.2f, Time.deltaTime);
+            else animator.SetFloat("State", 0);
             // 1인칭 회전은 여기서 고정
             transform.rotation = Quaternion.Euler(0f, LeftRight, 0f);
         }

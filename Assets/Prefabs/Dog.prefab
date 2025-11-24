@@ -469,7 +469,7 @@ GameObject:
   - component: {fileID: 6895319234771390483}
   m_Layer: 0
   m_Name: Dog
-  m_TagString: hero
+  m_TagString: dog
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -564,7 +564,6 @@ MonoBehaviour:
   PoolToSpawn: {fileID: 2486239768450002958, guid: d54f8828ceb7e8145a15d5b3537043b8, type: 3}
   bullet: {fileID: 0}
   SpawnPos: {fileID: 0}
-  field: {fileID: 0}
 --- !u!65 &6974005083229135745
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -584,8 +583,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.4379836, y: 0.9092504, z: 1.1978228}
-  m_Center: {x: -0.006711205, y: 0.4546252, z: 0.09891077}
+  m_Size: {x: 0.4379836, y: 1.0455191, z: 1.1978228}
+  m_Center: {x: -0.006711205, y: 0.52275956, z: 0.09891077}
 --- !u!54 &9051303245174619768
 Rigidbody:
   m_ObjectHideFlags: 0

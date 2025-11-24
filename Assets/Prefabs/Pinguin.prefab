@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 4736793405085695715}
   m_Layer: 0
   m_Name: Pinguin
-  m_TagString: Untagged
+  m_TagString: penguin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -629,7 +629,6 @@ MonoBehaviour:
   PoolToSpawn: {fileID: 0}
   bullet: {fileID: 0}
   SpawnPos: {fileID: 0}
-  field: {fileID: 0}
 --- !u!65 &9216173975502573636
 BoxCollider:
   m_ObjectHideFlags: 0

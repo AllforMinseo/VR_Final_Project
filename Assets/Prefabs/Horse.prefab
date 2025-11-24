@@ -1104,7 +1104,7 @@ GameObject:
   - component: {fileID: 378094239248946871}
   m_Layer: 0
   m_Name: Horse
-  m_TagString: Untagged
+  m_TagString: horse
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1223,7 +1223,6 @@ MonoBehaviour:
   PoolToSpawn: {fileID: 0}
   bullet: {fileID: 0}
   SpawnPos: {fileID: 0}
-  field: {fileID: 0}
 --- !u!65 &6099855510917590233
 BoxCollider:
   m_ObjectHideFlags: 0

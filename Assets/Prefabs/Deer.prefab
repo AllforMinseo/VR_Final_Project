@@ -747,7 +747,7 @@ GameObject:
   - component: {fileID: 4141339136340568038}
   m_Layer: 0
   m_Name: Deer
-  m_TagString: Untagged
+  m_TagString: deer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -863,9 +863,7 @@ MonoBehaviour:
   tagToClear: Bullet
   healAmount: 3
   IceToSpawn: {fileID: 0}
-  spawnOffset: {x: 0, y: 0, z: 0}
   PoolToSpawn: {fileID: 0}
-  spawnOffset2: {x: 0, y: 0, z: 0}
   bullet: {fileID: 0}
   SpawnPos: {fileID: 0}
 --- !u!65 &6416943274958162805

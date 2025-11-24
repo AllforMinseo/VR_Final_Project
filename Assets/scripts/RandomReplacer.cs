@@ -29,6 +29,10 @@ public class RandomReplacer : MonoBehaviour
             GetComponent<cshPlayerController>().HP -= 2;
             return;
         }
+        else if (other.gameObject.tag == "Untagged")
+        {
+            return;
+        }
         else if(other.gameObject.tag == "pee")
         {
             GetComponent<cshPlayerController>().speedMul = 1f;
@@ -47,14 +51,14 @@ public class RandomReplacer : MonoBehaviour
             if (name == "Line1") { rebo.Loopline++; }//한바퀴 돌면 루프라인 추가
             int i = int.Parse(name.Replace("Line", "")) - 1;
 
-            Transform player = transform.parent;                    // Player 보관
+            Transform player = transform.parent;                    
             var prefab = heroCandidates[Random.Range(0, heroCandidates.Length)];
 
-            Destroy(gameObject);                                     // 나(Hero) 삭제
+            Destroy(gameObject);                                     
             var newHero = Instantiate(prefab, lineSpawns[i].position, lineSpawns[i].rotation, player);
-            rebo.Lastline = i;      //마지막까지 돈 라인 기억하기
-            newHero.name = "Hero";                                   // 이름 유지
-            FindObjectOfType<Follow1P>().target = newHero.transform;                     // 카메라 타깃 갱신
+            rebo.Lastline = i;      
+            newHero.name = "Hero";                                   
+            FindObjectOfType<Follow1P>().targetpos = newHero.transform;                     
             var ui = GameObject.FindObjectOfType<cshUI>();
             if (ui) ui.player = newHero;
         }
@@ -63,12 +67,12 @@ public class RandomReplacer : MonoBehaviour
         if (GetComponent<cshPlayerController>().HP <= 0)
         {
 
-            Transform player = transform.parent;                    // Player 보관
+            Transform player = transform.parent;                   
             var prefab = heroCandidates[Random.Range(0, heroCandidates.Length)];
-            Destroy(gameObject);                                     // 나(Hero) 삭제
+            Destroy(gameObject);                                    
             var newHero = Instantiate(prefab, lineSpawns[rebo.Lastline].position, lineSpawns[rebo.Lastline].rotation, player);
-            newHero.name = "Hero";                                   // 이름 유지
-            FindObjectOfType<Follow1P>().target = newHero.transform;                     // 카메라 타깃 갱신
+            newHero.name = "Hero";                                   
+            FindObjectOfType<Follow1P>().targetpos = newHero.transform;                     
             var ui = GameObject.FindObjectOfType<cshUI>();
             if (ui) ui.player = newHero;
         }

@@ -236,7 +236,7 @@ public class EnemyController : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, rot, 0.1f);
             animator.SetFloat("Vert", 1, 0.2f, Time.deltaTime);
 
-            if (speedMul == 2) animator.SetFloat("State", 0, 0.2f, Time.deltaTime);
+            if (speedMul == 2) animator.SetFloat("State", 0);
             else if (speedMul == 4) animator.SetFloat("State", 1, 0.2f, Time.deltaTime);
         }
 

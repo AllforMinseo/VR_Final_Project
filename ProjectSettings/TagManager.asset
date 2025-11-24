@@ -11,11 +11,14 @@ TagManager:
   - poison
   - pee
   - Tiger
-  - bunny
-  - bear
-  - elephant
   - Line
   - Lava
+  - dog
+  - deer
+  - penguin
+  - kitty
+  - horse
+  - chicken
   layers:
   - Default
   - TransparentFX

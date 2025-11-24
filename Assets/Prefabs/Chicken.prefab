@@ -1186,7 +1186,7 @@ GameObject:
   - component: {fileID: 7937075984094956679}
   m_Layer: 0
   m_Name: Chicken
-  m_TagString: Untagged
+  m_TagString: chicken
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1306,7 +1306,6 @@ MonoBehaviour:
   PoolToSpawn: {fileID: 0}
   bullet: {fileID: 399942139957577004, guid: 6a6dedc168a40ff4fb283ef7f6065c78, type: 3}
   SpawnPos: {fileID: 920195084537773885}
-  field: {fileID: 0}
 --- !u!65 &8997083030597146797
 BoxCollider:
   m_ObjectHideFlags: 0

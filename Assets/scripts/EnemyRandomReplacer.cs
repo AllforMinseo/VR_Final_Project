@@ -46,7 +46,7 @@ public class EnemyRandomReplacer : MonoBehaviour
         {
             string name = other.name;
             int i = int.Parse(name.Replace("Line", "")) - 1;
-
+            if (name == "Line1") { rebo.LoopLine++; }
             Transform enemyRoot = transform.parent;
             var prefab = enemyCandidates[Random.Range(0, enemyCandidates.Length)];
 
