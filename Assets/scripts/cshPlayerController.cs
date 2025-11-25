@@ -80,6 +80,7 @@ public class cshPlayerController : MonoBehaviour
         {
             skillTimer = 0f;
             skill.Cast();
+            CancelInvoke(nameof(RefreshSpeedMul));
             Invoke(nameof(RefreshSpeedMul), 4f); 
         }
 

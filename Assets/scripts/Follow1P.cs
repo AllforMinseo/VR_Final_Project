@@ -17,8 +17,8 @@ public class Follow1P : MonoBehaviour
     public Transform targetpos;
     Vector3 _vel;
 
-    float distance = 10f;              // 타겟과 카메라 거리
-    float pitch = 40f;                 // 내려다보는 각도(고정)
+    float distance = 15f;              // 타겟과 카메라 거리
+    float pitch = 50f;                 // 내려다보는 각도(고정)
     float yawSpeed = 20f;              // 초당 회전 속도(도)
 
     private float yaw;                        // 누적 Y 회전값
@@ -33,7 +33,7 @@ public class Follow1P : MonoBehaviour
         if (!target) target = GameObject.Find("Hero");  // 새 Hero로 타깃 갱신
         targetpos = target.transform;
         
-        if (playerinfo.GetComponent<StaticValue>().Loopline == 1 || enemyinfo.GetComponent<EnemyReborn>().LoopLine == 1) {
+        if (playerinfo.GetComponent<StaticValue>().Loopline == 3 || enemyinfo.GetComponent<EnemyReborn>().LoopLine == 3) {
             //1인칭이였든 3인칭이였든 승리혹은 패배시
             yaw += yawSpeed * Time.unscaledDeltaTime;
 
@@ -94,7 +94,5 @@ public class Follow1P : MonoBehaviour
                 transform.rotation = Quaternion.Euler(tpEuler);
         }
         
-        if (playerinfo.GetComponent<StaticValue>().Loopline == 1) transform.position = new Vector3(22.5f, 30, -15f); //승리시 카메라 이동
-
     }
 }

@@ -58,6 +58,12 @@ public class cshUI : MonoBehaviour
             audioSource.Play();
             Time.timeScale = 0f;
             once =false;
+            hptext.gameObject.SetActive(false);
+            Timetext.gameObject.SetActive(false);
+            character.gameObject.SetActive(false);
+            Looptxt.gameObject.SetActive(false);
+            skilltxt.gameObject.SetActive(false);
+            SKill.gameObject.SetActive(false);
         }
         else if(enemy.transform.parent.GetComponent<EnemyReborn>().LoopLine == 3 && once)
         {
@@ -67,6 +73,12 @@ public class cshUI : MonoBehaviour
             audioSource.Play();
             Time.timeScale = 0f;
             once = false;
+            hptext.gameObject.SetActive(false);
+            Timetext.gameObject.SetActive(false);
+            character.gameObject.SetActive(false);
+            Looptxt.gameObject.SetActive(false);
+            skilltxt.gameObject.SetActive(false);
+            SKill.gameObject.SetActive(false);
         }
         Timetext.text = $"Time = {gametime.ToString("F2")}";
         hptext.text = $"Ã¼·Â :      {player.GetComponent<cshPlayerController>().HP}";
