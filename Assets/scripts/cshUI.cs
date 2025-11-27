@@ -27,8 +27,7 @@ public class cshUI : MonoBehaviour
 
     void Awake()
     {
-
-        Time.timeScale = 1;//재시작시 시간이 다시 흐름
+        
         Win.gameObject.SetActive(false);
         Lose.gameObject.SetActive(false);
         once = true;
@@ -59,6 +58,7 @@ public class cshUI : MonoBehaviour
             Time.timeScale = 0f;
             once =false;
             hptext.gameObject.SetActive(false);
+            HPbar.gameObject.SetActive(false);
             Timetext.gameObject.SetActive(false);
             character.gameObject.SetActive(false);
             Looptxt.gameObject.SetActive(false);
@@ -73,6 +73,7 @@ public class cshUI : MonoBehaviour
             audioSource.Play();
             Time.timeScale = 0f;
             once = false;
+            HPbar.gameObject.SetActive(false);
             hptext.gameObject.SetActive(false);
             Timetext.gameObject.SetActive(false);
             character.gameObject.SetActive(false);
@@ -81,7 +82,7 @@ public class cshUI : MonoBehaviour
             SKill.gameObject.SetActive(false);
         }
         Timetext.text = $"Time = {gametime.ToString("F2")}";
-        hptext.text = $"체력 :      {player.GetComponent<cshPlayerController>().HP}";
+        hptext.text = $"체력 :        {player.GetComponent<cshPlayerController>().HP}";
         Looptxt.text = $"남은바퀴수 : {3-player.GetComponentInParent<StaticValue>().Loopline}\n적 남은바퀴수 : {3 - enemy.GetComponentInParent<EnemyReborn>().LoopLine}";
         switch (player.tag)
         {

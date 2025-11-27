@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHP: 10
   MoveSpeed: 3.5
-  SkillCooltime: 8
+  SkillCooltime: 4
 --- !u!114 &8699346736665497586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +191,6 @@ MonoBehaviour:
   PoolToSpawn: {fileID: 0}
   bullet: {fileID: 0}
   SpawnPos: {fileID: 0}
-  field: {fileID: 0}
 --- !u!65 &3563983842429332023
 BoxCollider:
   m_ObjectHideFlags: 0
