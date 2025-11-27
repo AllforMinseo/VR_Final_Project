@@ -19,6 +19,10 @@ TagManager:
   - kitty
   - horse
   - chicken
+  - bunny
+  - bear
+  - elephant
+  - Ice
   layers:
   - Default
   - TransparentFX
