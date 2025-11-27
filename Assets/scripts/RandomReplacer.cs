@@ -33,10 +33,16 @@ public class RandomReplacer : MonoBehaviour
         {
             return;
         }
+        else if (other.gameObject.tag == "Ice")
+        {
+            GetComponent<cshPlayerController>().speedMul = 1.5f;
+            
+            return;
+        }
         else if(other.gameObject.tag == "pee")
         {
             GetComponent<cshPlayerController>().speedMul = 1f;
-            pc.Invoke(nameof(cshPlayerController.RefreshSpeedMul), 2f); 
+            
             return;
         }
         else if (other.gameObject.tag == "Lava")
@@ -62,6 +68,11 @@ public class RandomReplacer : MonoBehaviour
             var ui = GameObject.FindObjectOfType<cshUI>();
             if (ui) ui.player = newHero;
         }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        // 트리거에서 벗어나면 기본 속도로 복귀
+        GetComponent<cshPlayerController>().speedMul = 2f;
     }
     void Update() {
         if (GetComponent<cshPlayerController>().HP <= 0)

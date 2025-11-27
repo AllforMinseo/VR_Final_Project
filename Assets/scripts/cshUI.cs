@@ -113,7 +113,7 @@ public class cshUI : MonoBehaviour
 
             case "penguin":
                 character.text = $"캐릭터 : 펭귄";
-                skilltxt.text = $"특수능력: 15초뒤 사라지는 \n얼음을 설치해요";
+                skilltxt.text = $"특수능력: 15초뒤 사라지는 \n얼음을 설치하고 얼음위에서 빨라요";
                 break;
 
             case "kitty":
