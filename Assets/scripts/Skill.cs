@@ -111,4 +111,17 @@ public class Skill : MonoBehaviour
         prefabBullet.GetComponent<Rigidbody>().AddForce(transform.forward * 400f);
     }
 
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.CompareTag("Ice"))
+        {
+            var pc = GetComponent<cshPlayerController>();
+            var ec = GetComponent<EnemyController>();
+            if (gameObject.name == "Enemy")
+                ec.speedMul = 1.5f;
+            else
+                pc.speedMul = 1.5f;
+        }
+    }
+
 }
