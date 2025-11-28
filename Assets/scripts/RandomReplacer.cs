@@ -53,25 +53,26 @@ public class RandomReplacer : MonoBehaviour
         else
         {
             Debug.Log($"Triggered by: {other.name}");
-            string name = other.name;
-            if (name == "Line1") { rebo.Loopline++; }//한바퀴 돌면 루프라인 추가
-            int i = int.Parse(name.Replace("Line", "")) - 1;
+            string name = other.name;                 //라인을 넘으면 gameObject가 삭제될것이므로
+            if (name == "Line1") { rebo.Loopline++; } // 라인정보는 부모객체의 스크립트 변수에 저장
+            int i = int.Parse(name.Replace("Line", "")) - 1;  // 라인정보를 인덱스로 바꾸기기
 
-            Transform player = transform.parent;                    
+            Transform player = transform.parent;
             var prefab = heroCandidates[Random.Range(0, heroCandidates.Length)];
 
-            Destroy(gameObject);                                     
+            Destroy(gameObject);    //자가삭제후 새 동물 랜덤생성                                 
             var newHero = Instantiate(prefab, lineSpawns[i].position, lineSpawns[i].rotation, player);
-            rebo.Lastline = i;      
-            newHero.name = "Hero";                                   
-            FindObjectOfType<Follow1P>().targetpos = newHero.transform;                     
-            var ui = GameObject.FindObjectOfType<cshUI>();
+            rebo.Lastline = i;      //제일 최근 돌았던 라인정보도 부모객체에 저장장
+            newHero.name = "Hero";    //주인공 이름은 반드시 고정
+            FindObjectOfType<Follow1P>().targetpos = newHero.transform; //갈곳잃은 UI와 카메라도 다시 붙임
+            var ui = GameObject.FindObjectOfType<cshUI>(); 
             if (ui) ui.player = newHero;
+
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        // 트리거에서 벗어나면 기본 속도로 복귀
+        if (other.gameObject.tag == "Ice" || other.gameObject.tag == "pee")
         GetComponent<cshPlayerController>().speedMul = 2f;
     }
     void Update() {

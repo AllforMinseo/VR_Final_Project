@@ -6,12 +6,12 @@ public class Skill : MonoBehaviour
 {
     public enum Kind
     {
-        ClearTag,      // 특정 태그 전부 삭제(기존 동작)
+        ClearTag,      // bullet삭제
         Heal,          // 체력 회복
         SpawnIce,   // 얼음 소환
-        Dash, // 대쉬
-        SpawnPool,
-        Shoot
+        Dash,   // 대쉬
+        SpawnPool, //pee 소환
+        Shoot //egg 소환
     }
 
     [Header("공통")]
@@ -75,7 +75,7 @@ public class Skill : MonoBehaviour
 
     void DoHeal()
     {
-        // 네가 쓰는 컨트롤러에 HP/MaxHP가 있으니 그대로 활용
+        //컨트롤러에 HP/MaxHP가 있으니 그대로 활용
         var pc = GetComponent<cshPlayerController>();
         var ec = GetComponent<EnemyController>();
         if (gameObject.name == "Enemy")
@@ -108,7 +108,7 @@ public class Skill : MonoBehaviour
     void Shoot() {
 
         GameObject prefabBullet = Instantiate(bullet, SpawnPos.position, transform.rotation);
-        prefabBullet.GetComponent<Rigidbody>().AddForce(transform.forward * 400f);
+        prefabBullet.GetComponent<Rigidbody>().AddForce(transform.forward * 500f);
     }
 
     void OnTriggerEnter(Collider col)

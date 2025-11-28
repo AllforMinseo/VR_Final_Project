@@ -17,8 +17,8 @@ public class cshPlayerController : MonoBehaviour
 
     [Header("카메라")]
     public GameObject cam;
-    float LeftRight;  // 1인칭에서 쓸 고정 yaw(도)
-    float turnSpeed = 90f; // A/D 회전 속도(도/초)
+    float LeftRight = 0f;  // 1인칭에서 쓸 고정 yaw(도)
+    float turnSpeed = 90f; // A/D 민감도
     void Awake()
     {
         stats = GetComponent<CharStats>();
@@ -30,7 +30,7 @@ public class cshPlayerController : MonoBehaviour
     {
         HP = stats.MaxHP;
         skillTimer = 10f;
-        //if (animator) animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+        if (animator) animator.updateMode = AnimatorUpdateMode.UnscaledTime;
         speedMul = 2f;                             
         
     }
@@ -45,26 +45,26 @@ public class cshPlayerController : MonoBehaviour
         if (cam.GetComponent<Follow1P>().isFirstPerson)
         {
             
-            // A/D로 '회전만' 제어 (돌기만 하고 이동축엔 반영 X)
+            // A/D로 '회전만' 제어 (제자리 돌기만 하고 이동축엔 반영 X)
             if (Input.GetKey(KeyCode.A)) LeftRight -= turnSpeed * Time.deltaTime;
             if (Input.GetKey(KeyCode.D)) LeftRight += turnSpeed * Time.deltaTime;
 
-            // 안정적인 수평 forward/right 생성 
+            // 사용자가 돌린 각 만큼 회전한 상태의 전진벡터
             Vector3 fwd = Quaternion.Euler(0f, LeftRight, 0f) * Vector3.forward;
-            Vector3 right = new Vector3(fwd.z, 0f, -fwd.x); // 수평 우측
+            Vector3 right = new Vector3(fwd.z, 0f, -fwd.x); // 수평을 유지한 상태의 전진벡터 기준 오른쪽
 
             if (Input.GetKey(KeyCode.W)) dir += fwd;
             if (Input.GetKey(KeyCode.S)) dir -= fwd;
-            // 선택 스트레이프 (그대로 0.0f면 이동 없음)
+            // 
             if (Input.GetKey(KeyCode.A)) dir -= right * 0.0f;
             if (Input.GetKey(KeyCode.D)) dir += right * 0.0f;
 
-            dir = Vector3.ClampMagnitude(dir, 1f);
-            if(dir.sqrMagnitude>0.1f)animator.SetFloat("Vert", 1, 0.2f, Time.deltaTime);
-            else animator.SetFloat("Vert", 0, 0.2f, Time.deltaTime);
-            if (speedMul == 4) animator.SetFloat("State", 1, 0.2f, Time.deltaTime);
-            else animator.SetFloat("State", 0);
-            // 1인칭 회전은 여기서 고정
+            
+            if(dir.sqrMagnitude>0.1f)animator.SetFloat("Vert", 1, 0.2f, Time.deltaTime);//vert가 1이고 state가 0이면 걷는모션
+            else animator.SetFloat("Vert", 0, 0.2f, Time.deltaTime);//IDLE 모션
+            if (speedMul == 4) animator.SetFloat("State", 1, 0.2f, Time.deltaTime);// vert와 state가 1이면 뛰는 모션
+            
+            
             transform.rotation = Quaternion.Euler(0f, LeftRight, 0f);
         }
         else               // 3인칭: 월드 기준(기존 그대로)
